@@ -108,4 +108,4 @@ const beers = [
 	// 	numReviews: 20
 	// }
 ];
-module.exports = beers;
+export default beers;

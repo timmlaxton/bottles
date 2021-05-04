@@ -1,9 +1,12 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const beers = require('./data/beers');
-const gins = require('./data/gins');
+import express from 'express';
+import dotenv from 'dotenv';
+import connectDB from './config/db.js';
+import beers from './data/beers.js';
+import gins from './data/gins.js';
 
 dotenv.config();
+
+connectDB();
 
 const app = express();
 

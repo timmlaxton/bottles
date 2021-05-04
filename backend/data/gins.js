@@ -45,4 +45,4 @@ const gins = [
 	}
 ];
 
-module.exports = gins;
+export default gins;
