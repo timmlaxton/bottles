@@ -1,13 +1,151 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+main {
+	min-height: 80vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.card {
+	border: none;
+}
+
+.beer-title {
+	text-align: center;
+}
+
+.beer-brand {
+	text-align: center;
+	color: black;
+}
+.gin-brand {
+	text-align: center;
+	color: black;
+}
+
+.beer-name {
+	text-align: center;
+	color: black;
+}
+
+.beer-price {
+	text-align: center;
+}
+.gin-price {
+	text-align: center;
+}
+
+/* .carousel {
+	height: 60vh;
+	width: 90vw;
+} */
+
+.catergories-image {
+	width: 50%;
+	margin-left: 2%;
+}
+
+.cards-row {
+	margin-left: 20px;
+}
+
+.gin-tag {
+	text-align: center;
+	margin-top: 30px;
+}
+
+.beer-tag {
+	text-align: center;
+	margin-top: 30px;
+}
+
+.categories-gin {
+	margin-top: 20px;
+}
+
+.text {
+	margin-top: 50px;
+	margin-left: 100px;
+}
+
+.skulls {
+	width: 50%;
+	height: 10%;
+	margin-top: 5%;
+}
+
+.skulls-2 {
+	width: 50%;
+	height: 10%;
+	margin-top: 5%;
+	margin-left: 60px;
+}
+
+.text-2 {
+	margin-top: 50px;
+	margin-left: 80px;
+}
+
+.containter-1 {
+	background-color: #b7cbc0;
+	margin-top: 50px;
+	width: auto;
+}
+
+.containter-2 {
+	background-color: #b7cbc0;
+}
+
+.card-image {
+	flex-wrap: wrap-reverse;
+	flex-direction: column-reverse;
+	width: 50px;
+	height: 90px;
+}
+
+.cardHome {
+	width: 90px;
+	height: 110px;
+}
+
+.backbtn {
+	border: none;
+	background-color: white;
+	font-size: 50px;
+}
+
+.infoimage {
+	border: none;
+}
+
+.infostock {
+	border: none;
+}
+
+.infoprice {
+	color: cadetblue;
+}
+
+.infodescription {
+	border: none;
+	margin-right: 50px;
+	color: grey;
+	font-size: 15px;
+}
+
+.infostatus {
+	border: none;
+}
+
+.infoqty {
+	border: none;
+	size: 10%;
+}
+
+.infobutton {
+	border: none;
+	padding: none;
+	margin-right: 3%;
+}
+
+.formqty {
+	width: 30%;
+	padding: none;
+	margin-right: 20%;
 }
