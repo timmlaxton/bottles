@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap';
+import { Row, Col, Image, ListGroup, Button, Form } from 'react-bootstrap';
 
 const GinInfoScreen = ({ match }) => {
 	const [qty, setQty] = useState(1);
@@ -14,7 +14,7 @@ const GinInfoScreen = ({ match }) => {
 		};
 
 		fetchGin();
-	}, []);
+	}, [match]);
 
 	const addToCartHandler = () => {};
 
