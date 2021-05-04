@@ -1,6 +1,5 @@
 const gins = [
 	{
-		_id: '1',
 		brand: 'The Botanist ',
 		image: '/images/bot.jpg',
 		description:
@@ -11,7 +10,6 @@ const gins = [
 		numReviews: 50
 	},
 	{
-		_id: '2',
 		brand: 'Aviation  ',
 		image: '/images/aviation.jpg',
 		description:
@@ -22,7 +20,6 @@ const gins = [
 		numReviews: 10
 	},
 	{
-		_id: '3',
 		brand: 'No.3 London Dry  ',
 		image: '/images/london.jpg',
 		description:
@@ -33,7 +30,6 @@ const gins = [
 		numReviews: 22
 	},
 	{
-		_id: '4',
 		brand: 'Silent Pool',
 		image: '/images/pool.jpg',
 		description:

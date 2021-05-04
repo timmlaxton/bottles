@@ -1,6 +1,5 @@
 const beers = [
 	{
-		_id: '1',
 		brand: 'Beaver Town ',
 		name: 'Gamma-Ray',
 		image: '/images/Gamma.jpg',
@@ -12,7 +11,6 @@ const beers = [
 		numReviews: 50
 	},
 	{
-		_id: '2',
 		brand: 'Brixton Brewery ',
 		name: 'Cold Harbour Lager',
 		image: '/images/BrixtonCold.jpg',
@@ -24,7 +22,6 @@ const beers = [
 		numReviews: 10
 	},
 	{
-		_id: '3',
 		brand: 'Black Isle ',
 		name: 'GoldFinch IPA',
 		image: '/images/BlackIsleGold.jpg',
@@ -36,7 +33,6 @@ const beers = [
 		numReviews: 22
 	},
 	{
-		_id: '4',
 		brand: 'Black Isle',
 		name: 'Porter',
 		image: '/images/BlackIslePorter.jpg',

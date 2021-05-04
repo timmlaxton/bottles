@@ -1,8 +1,9 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import connectDB from './config/db.js';
-import beers from './data/beers.js';
-import gins from './data/gins.js';
+import ginRoutes from './routes/ginRoutes.js';
+import beerRoutes from './routes/beerRoutes.js';
 
 dotenv.config();
 
@@ -14,23 +15,12 @@ app.get('/', (req, res) => {
 	res.send('API is running...');
 });
 
-app.get('/api/beers', (req, res) => {
-	res.json(beers);
-});
+app.use('/api/gins', ginRoutes);
+app.use('/api/beers', beerRoutes);
 
-app.get('/api/gins', (req, res) => {
-	res.json(gins);
-});
+app.use(notFound);
 
-app.get('/api/beers/:id', (req, res) => {
-	const beer = beers.find((p) => p._id === req.params.id);
-	res.json(beer);
-});
-
-app.get('/api/gins/:id', (req, res) => {
-	const gin = gins.find((p) => p._id === req.params.id);
-	res.json(gin);
-});
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
