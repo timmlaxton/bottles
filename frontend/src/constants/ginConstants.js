@@ -1,0 +1,3 @@
+export const GIN_LIST_REQUEST = 'GIN_LIST_REQUEST';
+export const GIN_LIST_SUCCESS = 'GIN_LIST_SUCCESS';
+export const GIN_LIST_FAIL = 'GIN_LIST_FAIL';
