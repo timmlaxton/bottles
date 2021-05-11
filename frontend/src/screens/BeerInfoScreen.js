@@ -6,7 +6,7 @@ import Loader from '../components/Loader';
 import { Row, Col, Image, ListGroup, Button, Form } from 'react-bootstrap';
 import { listBeerDetails } from '../actions/beerActions';
 
-const BeerInfoScreen = ({ match }) => {
+const BeerInfoScreen = ({ match, history }) => {
 	const dispatch = useDispatch();
 	const [qty, setQty] = useState(1);
 
@@ -17,7 +17,9 @@ const BeerInfoScreen = ({ match }) => {
 		dispatch(listBeerDetails(match.params.id));
 	}, [dispatch, match]);
 
-	const addToCartHandler = () => {};
+	const addToCartHandler = () => {
+		history.push(`/cart/${match.params.id}?qty=${qty}`);
+	};
 
 	return (
 		<>

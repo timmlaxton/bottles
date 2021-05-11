@@ -8,6 +8,7 @@ import BeerInfoScreen from './screens/BeerInfoScreen';
 import GinScreen from './screens/GinScreen';
 import GinInfoScreen from './screens/GinInfoScreen';
 import HomeScreen from './screens/HomeScreen';
+import CartScreen from './screens/CartScreen';
 
 const App = () => {
 	return (
@@ -16,6 +17,7 @@ const App = () => {
 			<main className="py-3">
 				<Container>
 					<Route path="/" component={HomeScreen} exact />
+					<Route path="/cart/:id?" component={CartScreen} />
 					<Route path="/beer/:id" component={BeerInfoScreen} />
 					<Route path="/beers" component={BeerScreen} exact />
 					<Route path="/gin/:id" component={GinInfoScreen} />
