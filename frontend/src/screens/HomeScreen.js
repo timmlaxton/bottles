@@ -1,28 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
 import { Carousel, Col, Row, Image, Container, Card } from 'react-bootstrap';
 import Beer from '../components/Beer';
 import Gin from '../components/Gin';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { listGins } from '../actions/ginActions';
+import { listBeers } from '../actions/beerActions';
 
 const HomeScreen = () => {
 	const [index, setIndex] = useState(0);
-	const [beers, setBeers] = useState([]);
-	const [gins, setGins] = useState([]);
+	const dispatch = useDispatch();
+
+	const ginList = useSelector((state) => state.ginList);
+	const { loading: loadingGin, error: errorGin, gins } = ginList;
+
+	const beerList = useSelector((state) => state.beerList);
+	const { loading, error, beers } = beerList;
 
 	useEffect(() => {
-		const fetchBeers = async () => {
-			const { data } = await axios.get('/api/beers');
-			setBeers(data);
-		};
-		const fetchGins = async () => {
-			const { data } = await axios.get('/api/gins');
-			setGins(data);
-		};
-		fetchGins();
-		fetchBeers();
-	}, []);
+		dispatch(listGins());
+		dispatch(listBeers());
+	}, [dispatch]);
 
 	const handleSelect = (selectedIndex, e) => {
 		setIndex(selectedIndex);
@@ -76,13 +75,19 @@ const HomeScreen = () => {
 
 			<Container data-aos="fade-up">
 				<h2 className="beer-tag">Beers</h2>
-				<Row className="cards-row">
-					{beers.map((beer) => (
-						<Col data-aos="fade-up" className="cards" key={beer._id} sm={3} md={3} lg={3} xl={3}>
-							<Beer beer={beer} />
-						</Col>
-					))}
-				</Row>
+				{loading ? (
+					<h2>Loading...</h2>
+				) : error ? (
+					<h3>{error}</h3>
+				) : (
+					<Row className="cards-row">
+						{beers.map((beer) => (
+							<Col data-aos="fade-up" className="cards" key={beer._id} sm={3} md={3} lg={3} xl={3}>
+								<Beer beer={beer} />
+							</Col>
+						))}
+					</Row>
+				)}
 			</Container>
 
 			<Container className="containter-2">
@@ -136,13 +141,19 @@ const HomeScreen = () => {
 
 			<Container data-aos="fade-up" className="categories-gin">
 				<h2 className="gin-tag">Gins</h2>
-				<Row className="cards-row">
-					{gins.map((gin) => (
-						<Col data-aos="fade-right" className="cards" key={gin._id} sm={3} md={3} lg={3} xl={3}>
-							<Gin gin={gin} />
-						</Col>
-					))}
-				</Row>
+				{loadingGin ? (
+					<h2>Loading...</h2>
+				) : errorGin ? (
+					<h3>{errorGin}</h3>
+				) : (
+					<Row className="cards-row">
+						{gins.map((gin) => (
+							<Col data-aos="fade-right" className="cards" key={gin._id} sm={3} md={3} lg={3} xl={3}>
+								<Gin gin={gin} />
+							</Col>
+						))}
+					</Row>
+				)}
 			</Container>
 		</>
 	);

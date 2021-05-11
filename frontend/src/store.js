@@ -5,8 +5,8 @@ import { ginListReducer } from './reducers/ginReducer';
 import { beerListReducer } from './reducers/beerReducer';
 
 const reducer = combineReducers({
-	ginlist: ginListReducer,
-	beerlist: beerListReducer
+	ginList: ginListReducer,
+	beerList: beerListReducer
 });
 
 const initialState = {};

@@ -1,19 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 import Gin from '../components/Gin';
+import { listGins } from '../actions/ginActions';
 
-const GinScreen = ({ match }) => {
-	const [gins, setGins] = useState([]);
+const GinScreen = () => {
+	const dispatch = useDispatch();
 
 	useEffect(() => {
-		const fetchGins = async () => {
-			const { data } = await axios.get('/api/gins');
-			setGins(data);
-		};
+		dispatch(listGins());
+	}, [dispatch]);
 
-		fetchGins();
-	}, []);
+	const gins = [];
 
 	return (
 		<>

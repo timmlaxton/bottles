@@ -1,19 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 import Beer from '../components/Beer';
+import { listBeers } from '../actions/beerActions';
 
-const BeerScreen = ({ match }) => {
-	const [beers, setBeers] = useState([]);
+const BeerScreen = () => {
+	const dispatch = useDispatch();
 
 	useEffect(() => {
-		const fetchBeers = async () => {
-			const { data } = await axios.get('/api/beers');
-			setBeers(data);
-		};
+		dispatch(listBeers());
+	}, [dispatch]);
 
-		fetchBeers();
-	}, []);
+	const beers = [];
 
 	return (
 		<>
