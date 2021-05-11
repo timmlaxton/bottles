@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Carousel, Col, Row, Image, Container, Card } from 'react-bootstrap';
 import Beer from '../components/Beer';
 import Gin from '../components/Gin';
+import Message from '../components/Message';
+import Loader from '../components/Loader';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { listGins } from '../actions/ginActions';
@@ -76,9 +78,9 @@ const HomeScreen = () => {
 			<Container data-aos="fade-up">
 				<h2 className="beer-tag">Beers</h2>
 				{loading ? (
-					<h2>Loading...</h2>
+					<Loader />
 				) : error ? (
-					<h3>{error}</h3>
+					<Message variant="danger">{error}</Message>
 				) : (
 					<Row className="cards-row">
 						{beers.map((beer) => (
@@ -142,9 +144,9 @@ const HomeScreen = () => {
 			<Container data-aos="fade-up" className="categories-gin">
 				<h2 className="gin-tag">Gins</h2>
 				{loadingGin ? (
-					<h2>Loading...</h2>
+					<Loader />
 				) : errorGin ? (
-					<h3>{errorGin}</h3>
+					<Message variant="danger">{errorGin}</Message>
 				) : (
 					<Row className="cards-row">
 						{gins.map((gin) => (

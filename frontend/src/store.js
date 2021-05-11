@@ -1,12 +1,14 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { ginListReducer } from './reducers/ginReducer';
-import { beerListReducer } from './reducers/beerReducer';
+import { ginListReducer, ginDetailsReducer } from './reducers/ginReducer';
+import { beerListReducer, beerDetailsReducer } from './reducers/beerReducer';
 
 const reducer = combineReducers({
 	ginList: ginListReducer,
-	beerList: beerListReducer
+	ginDetails: ginDetailsReducer,
+	beerList: beerListReducer,
+	beerDetails: beerDetailsReducer
 });
 
 const initialState = {};
