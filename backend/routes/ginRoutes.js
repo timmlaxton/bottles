@@ -1,28 +1,8 @@
 import express from 'express';
-import asyncHandler from 'express-async-handler';
 const router = express.Router();
-import Gin from '../models/ginModel.js';
+import { getGins, getGinById } from '../controllers/ginController.js';
 
-router.get(
-	'/',
-	asyncHandler(async (req, res) => {
-		const gins = await Gin.find({});
-
-		res.json(gins);
-	})
-);
-
-router.get(
-	'/:id',
-	asyncHandler(async (req, res) => {
-		const gin = await Gin.findById(req.params.id);
-
-		if (gin) {
-			res.json(gin);
-		} else {
-			res.status(404).json({ message: 'This item is unavailable' });
-		}
-	})
-);
+router.route('/').get(getGins);
+router.route('/:id').get(getGinById);
 
 export default router;
