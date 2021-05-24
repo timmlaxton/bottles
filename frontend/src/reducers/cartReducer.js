@@ -10,7 +10,7 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
 			if (existItem) {
 				return {
 					...state,
-					cartItems: state.cartItems.ap((x) => (x.gin === existItem.gin ? item : x))
+					cartItems: state.cartItems.map((x) => (x.gin === existItem.gin ? item : x))
 				};
 			} else {
 				return {

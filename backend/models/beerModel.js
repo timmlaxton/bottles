@@ -55,7 +55,7 @@ const beerSchema = mongoose.Schema({
 	},
 	countInStock: {
 		type: Number,
-		requireD: true,
+		required: true,
 		default: 0
 	}
 });
