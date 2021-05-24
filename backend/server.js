@@ -2,8 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import connectDB from './config/db.js';
-import ginRoutes from './routes/ginRoutes.js';
-import beerRoutes from './routes/beerRoutes.js';
+import productRoutes from './routes/productRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 
 dotenv.config();
@@ -18,9 +17,7 @@ app.get('/', (req, res) => {
 	res.send('API is running...');
 });
 
-app.use('api/products', productRoutes);
-app.use('/api/gins', ginRoutes);
-app.use('/api/beers', beerRoutes);
+app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
 
 app.use(notFound);
