@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
 	res.send('API is running...');
 });
 
+app.use('api/products', productRoutes);
 app.use('/api/gins', ginRoutes);
 app.use('/api/beers', beerRoutes);
 app.use('/api/users', userRoutes);
